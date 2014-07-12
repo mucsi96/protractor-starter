@@ -1,19 +1,12 @@
-var chai = require('chai'),
+var helpers = require('../spec_helpers'),
+    chai = require('chai'),
     chaiAsPromised = require('chai-as-promised'),
     expect = chai.expect,
     prot= protractor.getInstance();
 
 chai.use(chaiAsPromised);
 
-function waitForTitleToContainText(text, done) {
-    browser.wait(function () {
-        return browser.getTitle().then(function (title) {
-            return title.indexOf(text) !== -1;
-        });
-    }).then(function () {
-        done();
-    });
-}
+
 
 module.exports = function() {
 
@@ -33,7 +26,7 @@ module.exports = function() {
     });
 
     this.Then(/^"([^"]*)" should be mentioned in the results$/, function (text, done) {
-        waitForTitleToContainText(text, done);
+        helpers.waitForTitleToContainText(text, done);
     });
 };
 
