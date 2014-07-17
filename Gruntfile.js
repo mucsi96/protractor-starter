@@ -11,7 +11,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
   	protractor: {
       options: {
-        configFile: 'protractor.conf.js'
+        configFile: 'e2e/protractor.conf.js'
       },
       chrome: {
         options: {
